@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class Trio<T> {
 	private T item1;
 	private T item2;
@@ -84,19 +83,80 @@ public class Trio<T> {
 		return count;
 	}
 	
-	 public boolean equals(Trio other) {
-		 ArrayList<T> original = new ArrayList<>();
-		// ArrayList<T> compare  = new ArrayList<>();
-		 original.add(item1);
-		 original.add(item2);
-		 original.add(item3);
-		
-		
-		 System.out.print(original);
-		 System.out.println(other);
-		 return original.equals(other);
+	@Override
+	public boolean equals(Object other) {
+		 if(other instanceof Trio<?>) {
+			 Trio<?> otherTrio = (Trio<?>) other;
+			 
+			 if(otherTrio.item1 instanceof String && this.item1 instanceof String) {
+				 String o1 = (String) this.item1;
+				 String o2 = (String) this.item2;
+				 String o3 = (String) this.item3;
+				 String c1 = (String) otherTrio.item1;
+				 String c2 = (String) otherTrio.item2;
+				 String c3 = (String) otherTrio.item3;
+				 ArrayList<String> original = new ArrayList<>();
+				 ArrayList<String> compare = new ArrayList<>();
+				 original.add(o1);
+				 original.add(o2);
+				 original.add(o3);
+				 compare.add(c1);
+				 compare.add(c2);
+				 compare.add(c3);
+				 Collections.sort(original);
+				 Collections.sort(compare);
+				 return original.equals(compare);
+			 }
+			 if (otherTrio.item1 instanceof Integer && this.item1 instanceof Integer) {
+				 Integer o1 = (Integer) this.item1;
+				 Integer o2 = (Integer) this.item2;
+				 Integer o3 = (Integer) this.item3;
+				 Integer c1 = (Integer) otherTrio.item1;
+				 Integer c2 = (Integer) otherTrio.item2;
+				 Integer c3 = (Integer) otherTrio.item3;
+				 ArrayList<Integer> original = new ArrayList<>();
+				 ArrayList<Integer> compare = new ArrayList<>();
+				 original.add(o1);
+				 original.add(o2);
+				 original.add(o3);
+				 compare.add(c1);
+				 compare.add(c2);
+				 compare.add(c3);
+				 Collections.sort(original);
+				 Collections.sort(compare);
+				 return original.equals(compare);
+			 }
+			 if (otherTrio.item1 instanceof Character && this.item1 instanceof Character) {
+				 Character o1 = (Character) this.item1;
+				 Character o2 = (Character) this.item2;
+				 Character o3 = (Character) this.item3;
+				 Character c1 = (Character) otherTrio.item1;
+				 Character c2 = (Character) otherTrio.item2;
+				 Character c3 = (Character) otherTrio.item3;
+				 ArrayList<Character> original = new ArrayList<>();
+				 ArrayList<Character> compare = new ArrayList<>();
+				 original.add(o1);
+				 original.add(o2);
+				 original.add(o3);
+				 compare.add(c1);
+				 compare.add(c2);
+				 compare.add(c3);
+				 Collections.sort(original);
+				 Collections.sort(compare);
+				 return original.equals(compare);
+			 }
+			else {
+				 return false;
+			 }
+		 } else {
+			 return false;
+		 }
 	 }
 	
+	 //public void equalsHelper(Trio help) {
+	//	 
+	//	 
+	// }
 	
 	@Override 
 	public String toString() {
